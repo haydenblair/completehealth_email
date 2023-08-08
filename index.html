@@ -1,0 +1,50 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div class="login-box">
+  <center>
+  <img src="logo.png" width="80%">
+  </center>
+
+  <br>
+  <br>
+  <form name="submit-to-google-sheet">
+    <div class="user-box">
+      <input type="email" name="email" required>
+      <label>Email</label>
+    </div>
+    <center>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <button type="submit">Submit</button>
+    </a>
+  </center>
+  </form>
+
+
+</div>
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyJA-pRMcu3ERC2NycGW1-HGApHrQ6qHpmrbhsssLZOpA4o-wytjVGyTxTfZNZizdKK/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</html>
