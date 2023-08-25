@@ -1,0 +1,40 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+<div class="login-box">
+  <center>
+  <img src="logo.png" width="80%">
+  </center>
+  <form name="submit-to-google-sheet" action="success.html">
+    
+    <center>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+      Success!
+      <br>
+      <p>Show this to the Complete Health Rep for some free samples</p>
+    </a>
+  </center>
+  </form>
+
+
+</div>
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyJA-pRMcu3ERC2NycGW1-HGApHrQ6qHpmrbhsssLZOpA4o-wytjVGyTxTfZNZizdKK/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</html>
