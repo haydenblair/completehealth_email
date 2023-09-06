@@ -62,4 +62,14 @@
       .catch(error => console.error('Error!', error.message))
   })
 </script>
+
+<script>
+  var phone = document.querySelector('#phone');
+
+  phone.addEventListener('keyup', function(e){
+    if (event.key != 'Backspace' && (phone.value.length === 3 || phone.value.length === 7)){
+    phone.value += '-';
+    }
+  });
+</script>
 </html>
